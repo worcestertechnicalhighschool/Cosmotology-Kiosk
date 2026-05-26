@@ -6,7 +6,6 @@
         <title> Cosmetology Form</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="">
         <link rel="stylesheet" href="style.css">
 
 
@@ -19,25 +18,17 @@
   <button style="width:50%">Check-In </button>
   <button style="width:50%">Check-out </button>
 </div>
-
- <footer class="site-footer">
-  <div class="footer-content">
-    <h3>Built by Programming & Web Development</h3>
-
-    <ul class="team-list">
-    
-         <li>Jayden Anokye <span>• Student Back-end Leader </span></li>
-       <li>Sarah Brandine Dezan <span>• Student Back-end </span></li>
-       <li>Shamar Johnson <span>• Student Front-end </span></li>
-      <li>Kayne Barbieri <span>• Studnet front-end</span></li>
-     
-    </ul>
-
-    <p class="footer-copy">
-      © 2026 All Rights Reserved
-    </p>
-  </div>
-</footer>
-
-
 </html>
+
+<script>
+  // clikc event for check-in button gose to sign-in.html
+  document.querySelector('.btn-group button:first-child').addEventListener('click', function() {
+    window.location.href = 'sign-in.html';
+  });
+
+    // clicking on the check out button goes to feeback.html
+  document.querySelector('.btn-group button:last-child').addEventListener('click', function() {
+    window.location.href = 'feedback.html';
+  });
+
+</script>

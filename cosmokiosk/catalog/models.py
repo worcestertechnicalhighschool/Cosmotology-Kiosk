@@ -13,7 +13,7 @@ import uuid
 
 # Create your models here.
 
-class Checking(models.model):
+class Checking(models.Model):
     name = models.CharField(max_length=100)
     check_in = models.DateTimeField(auto_now_add=True)
     check_out = models.DateTimeField(null=True, blank=True)
@@ -38,22 +38,34 @@ class Client_Waiver(models.Model):
 
 class Feedback_Questions(models.Model):
     question = models.IntegerField(unique=True)
-    question_text = models.CharField(100)
+    question_text = models.CharField(max_length=100)
     
     def __str__(self):
         return f"Question {self.question}: {self.question_text}"
     
-    
-class Feedback(models.Models):
-    feedback_answer = models.CharField(200)
+class Feedback(models.Model):
+    feedback_answer = models.CharField(max_length=200)
+    client = models.ForeignKey(
+        'Client_Waiver', 
+        on_delete=models.SET_NULL, 
+        blank=True, 
+        null=True
+        )
     
     def __str__(self):
         return f"Q{self.Feedback_Questions.question}: {self.feedback_answer}"
     
     
-class Waxing_Waiver(models.Models):
-    answer = models.CharField(100)
+class Waxing_Waiver(models.Model):
+    answer = models.CharField(max_length=100)
+    client = models.ForeignKey(
+        'Client Waiver',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True
+    )
+    def __str__(self):
+        return f"Q{self.client_waiver}"
 
-
-class Services(models.Models):
+class Services(models.Model):
     service_name = models.CharField(100)
