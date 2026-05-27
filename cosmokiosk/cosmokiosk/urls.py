@@ -19,6 +19,7 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+   # path('feedback/', )
 ]
 
 # Add URL maps to redirect the base URL to our application

@@ -19,6 +19,7 @@ import uuid
 #         return self.na
 
 # model up for review, may not need it
+# models WILL GO THROUGH CHANGES, THEY ARE NOT FINAL. REMOVE THIS COMMENT WHEN THIS STATEMENT IS UNTRUEx
 
 class Client_Waiver(models.Model):
     first_name = models.CharField(max_length=100)
