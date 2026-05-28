@@ -5,8 +5,7 @@ class ClientAdmin(admin.ModelAdmin): # For the Client_Waiver model
     list_display = ("firstname", "lastname", "sign_date")
 
 class QuestionAdmin(admin.ModelAdmin): # For the Feedback_Questions model
-    pass
-
+    pass 
 class ResponsesAdmin(admin.ModelAdmin): # For the Feedback model
     pass
 
@@ -19,5 +18,9 @@ class ServiceAdmin(admin.ModelAdmin): # For the Services model
 
 
 app_models = apps.get_app_config('catalog').get_models()
+admin_models = [ClientAdmin, QuestionAdmin, ResponsesAdmin, WaxingAdmin, ServiceAdmin]
 for m in app_models:
-    admin.site.register(m)
+    #for j in admin_models:
+        admin.site.register(m)
+        
+#for j in app_models:

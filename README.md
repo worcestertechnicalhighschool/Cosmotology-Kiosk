@@ -11,18 +11,18 @@
 - Feedback Page: 
 
 
-## 👩🏽‍💻De👨🏾‍💻ve👨🏻‍💻lo👨🏾‍💻pers
+## Developers
  - Sarah Dezan
  - Jayden Anokye
  - Shamar Johnson
  - Kayne Barbieri
 
-## 🕰️ Project Timeline 
+## Project Timeline 
 - We began working on this project: May 19th, 2026
 - Worked through:
 ( May 19th - May 20th ) ( May 26th - May 29th )
 
-## 🕵️ Research 
+## Research 
 - [w3schools]("https://www.w3schools.com/django/index.php#:~:text=In%20this%20tutorial%20you%20get%20a%20step%20by%20step%20guide")
 - [modzilla tutorial]("https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website")
 - [geeks for geeks]("https://www.geeksforgeeks.org/")

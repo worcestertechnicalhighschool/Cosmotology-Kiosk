@@ -13,3 +13,6 @@ def signIn_view(request):
 
 def welcome_page(request):
     return render(request, 'catalog/welcome.html')
+    
+def services_page(request):
+    return render(request, 'catalog/services.html')
