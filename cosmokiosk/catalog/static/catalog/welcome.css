@@ -1,0 +1,69 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* PAGE */
+body {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  text-align: center;
+
+  padding-top: 40px;
+  font-family: Arial, sans-serif;
+}
+
+/* TITLE */
+h1 {
+  margin-bottom: 15px;
+}
+
+/* PARAGRAPH */
+p {
+  max-width: 600px;
+  margin-bottom: 40px;
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+
+.btn-group {
+  display: flex;
+  gap: 200px;
+  margin-bottom: 200px;
+
+  justify-content: center;
+  align-items: center;
+
+  flex: 1; /* THIS pushes it to the middle */
+}
+
+/* BUTTON STYLE */
+.btn-group a {
+  display: inline-block;
+  text-decoration: none;
+
+  font-size: 28px;
+  padding: 40px 90px;
+
+  border-radius: 15px;
+  font-weight: bold;
+
+  background: #333;
+  color: white;
+
+  transition: 0.3s;
+}
+
+.btn-group a:hover {
+  transform: scale(1.05);
+  background: #555;
+}
+
+

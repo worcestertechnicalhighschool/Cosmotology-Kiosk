@@ -1,31 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-  </head>
-    <body>
-    <h1>What are you getting done today</h1>
+<head>
+<meta charset="UTF-8">
+<title>Survey Form</title>
+    <link rel="stylesheet" href="{% static 'catalog/services.css' %}">
+</head>
 
+<body>
 
-    <label class="container">Perm
-      <input type="checkbox" checked="checked">
-      <span class="checkmark"></span>
-    </label>
-    <label class="container">Color
-      <input type="checkbox">
-      <span class="checkmark"></span>
-    </label>
-    <label class="container">Hairstyle
-      <input type="checkbox">
-      <span class="checkmark"></span>
-    </label>
-    <label class="container">Waxing
-      <input type="checkbox">
-      <span class="checkmark"></span>
-    </label>
-    <label class="container">Nails
-      <input type="checkbox">
-      <span class="checkmark"></span>
-    </label>
-  </body>
+<h1>What are you getting done today</h1>
+
+<form onsubmit="return checkService()">
+
+<label class="container">Perm
+  <input type="checkbox" id="perm">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container">Color
+  <input type="checkbox" id="color">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container">Hairstyle
+  <input type="checkbox" id="hair">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container">Waxing
+  <input type="checkbox" id="waxing">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container">Nails
+  <input type="checkbox" id="nails">
+  <span class="checkmark"></span>
+</label>
+
+<br><br>
+<button type="submit">Submit</button>
+
+</form>
+
+<script>
+function checkService() {
+  let waxing = document.getElementById("waxing").checked;
+
+  if (waxing) {
+    window.location.href = "waxing.html"; 
+    return false;
+  }
+}
+</script>
+
+</body>
 </html>

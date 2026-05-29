@@ -24,10 +24,10 @@ import uuid
 class Client_Waiver(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    date_time = models.DateTimeField(default=timezone.now)
+    date_time = models.DateField(default=timezone.now)
     
     def __str__(self):
-        return f"{self.first_name} {self.last_name}, signed {self.date_time}"
+        return f"{self.first_name} {self.last_name}"
         
     
     def get_absolute_url(self):
@@ -44,8 +44,6 @@ class Feedback_Questions(models.Model):
     
 class Feedback(models.Model):
     feedback_answer = models.CharField(max_length=200)
-    # Foreign Keys
-    
     feedback_question = models.ForeignKey('Feedback_Questions', on_delete=models.PROTECT, null=True)
     client = models.ForeignKey('Client_Waiver', on_delete=models.SET_NULL, blank=True, null=True)
     
@@ -62,12 +60,11 @@ class Waxing_Waiver(models.Model):
     health_issues = models.BooleanField(verbose_name="Health Conditions", default=False)
     
     # Other
-    timestamp = models.DateTimeField(default=timezone.now)
     agreement = models.CharField(max_length=100) #Client Signature
     client_info = models.ForeignKey('Client_Waiver', on_delete=models.SET_NULL, blank=True, null=True)
     
     def __str__(self):
-        return f"{self.client_info}, signed {self.timestamp}"
+        return f"{self.client_info}"
 
 
 class Services(models.Model):

@@ -1,11 +1,16 @@
+
+<!DOCTYPE html>
 <html> 
 <head>
         <meta charset="utf-8">
+
+        {% load static %}
+
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title> Cosmetology Form</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="sign.css">
+        <link rel="stylesheet" href="{% static 'catalog/signin.css' %}">
 </head>
 <body>
 
@@ -19,7 +24,12 @@
 
     {% csrf_token %}
   
-
+    {% if form.errors %}
+        <div style="background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 6px; margin-bottom: 20px; text-align: left;">
+            <strong>Please correct the following errors:</strong>
+            {{ form.errors }}
+        </div>
+    {% endif %}
 
 
 
@@ -41,7 +51,7 @@
 
 
     <label for="id_date_time">Date:</label>
-    <input type="date" id="id_date_time" name="date_time" class=""date-input value="{{ form.date.value|default:'' }}">
+    <input type="date" id="id_date_time" name="date_time" class="date-input" value="{{ form.date.value|default:'' }}">
     
     {% if form.date_time.errors %}
       <span class="error-text">{{ form.date_time.errors.0}}</span>

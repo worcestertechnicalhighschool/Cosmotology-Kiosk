@@ -1,0 +1,108 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* PAGE */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f3f4f6, #dbeafe);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+}
+
+/* TITLE */
+h1 {
+  font-size: 42px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* FORM (NO BOX, JUST WIDTH CONTROL) */
+form {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* OPTIONS */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 35px;
+  cursor: pointer;
+  font-size: 26px;
+}
+
+/* HIDE DEFAULT */
+.container input {
+  position: absolute;
+  opacity: 0;
+}
+
+/* CUSTOM CHECKBOX */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 36px;
+  width: 36px;
+  background-color: #e5e7eb;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+/* HOVER */
+.container:hover input ~ .checkmark {
+  background-color: #cbd5f5;
+}
+
+/* CHECKED */
+.container input:checked ~ .checkmark {
+  background-color: #3b82f6;
+}
+
+/* CHECK ICON */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 13px;
+  top: 7px;
+  width: 8px;
+  height: 16px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+/* BUTTON */
+button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2563eb;
+}
