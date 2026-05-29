@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import Waxing_Waiver, ClientWaiverForm, Feedback_Questions, Feedback
+from django.utils import timezone
 
 
 # Create your views here.
@@ -21,7 +22,7 @@ def signin_view(request):
             print("--- FORM VALIDATION FAILED ---")
             print(form.errors.as_data())
     else:
-        form = ClientWaiverForm()
+        form = ClientWaiverForm(initial={'date_time': timezone.now()})
     return render(request, 'catalog/sign-in.html', {'form': form})
 
 

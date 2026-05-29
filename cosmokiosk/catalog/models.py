@@ -43,12 +43,12 @@ class Feedback_Questions(models.Model):
         return f"Question {self.question}: {self.question_text}"
     
 class Feedback(models.Model):
+    questions = models.ForeignKey('Feedback_Questions', on_delete=models.PROTECT, null=True)
     feedback_answer = models.CharField(max_length=200)
-    feedback_question = models.ForeignKey('Feedback_Questions', on_delete=models.PROTECT, null=True)
     client = models.ForeignKey('Client_Waiver', on_delete=models.SET_NULL, blank=True, null=True)
     
     def __str__(self):
-        return f"Q{self.feedback_question.question}: {self.feedback_answer}"
+        return f"Q{self.questions.question}: {self.feedback_answer}"
     
     
 class Waxing_Waiver(models.Model):

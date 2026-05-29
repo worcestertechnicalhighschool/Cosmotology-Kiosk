@@ -15,7 +15,6 @@ class ClientWaiverForm(forms.ModelForm):
     def clean_date_time(self):
         date_time_value = self.cleaned_data.get('date_time')
         if date_time_value:
-            # Handle both DateField or DateTimeField structures gracefully
             if isinstance(date_time_value, datetime.datetime):
                 check_date = date_time_value.date()
             else:
@@ -55,11 +54,11 @@ class ClientWaiverForm(forms.ModelForm):
 class Waxing_Waiver(forms.ModelForm):
     class Meta:
         model = Waxing_Waiver
-        fields = ['medicine', 'allergy', 'soap_use', 'exposed', 'health_issues', 'timestamp', 'agreement', 'client_info']
+        fields = ['medicine', 'allergy', 'soap_use', 'exposed', 'health_issues', 'agreement', 'client_info']
 
     def clean(self):
         cleaned_data = super().clean()
-        boolean_fields = ['medicine', 'allergy', 'soap_use', 'exposed', 'health_issues', 'timestamp', 'agreement', 'client_info']
+        boolean_fields = ['medicine', 'allergy', 'soap_use', 'exposed', 'health_issues', 'agreement', 'client_info']
         for field in boolean_fields:
             if not cleaned_data.get(field):
                 self.add_error(field,_('Please check every box to confirm your waiver agreement'))
@@ -83,13 +82,27 @@ class Feedback_Questions(forms.ModelForm):
     )
 class Feedback(forms.ModelForm):
     class Meta: 
-        model = Feedback;
-        fields = ['feedback_answer','feedback_question','client']
+        model = Feedback
+        fields = ['feedback_answer','questions','client']
 
         feedback_answer = forms.CharField(
             required=True,
             widget=forms.Textarea(attrs={
                 'rows': 4
             }))
-# bug testing comment        
-      
+# bug testing comment  
+# class Services(forms.ModelForm):
+#     class Meta:
+#         model = Services
+#         service_fields = ['service_name']
+
+#     selection_choice = forms.CharField(
+#         required=True)
+
+#     def clean_selection(self):
+#         cleaned_data = super().clean()
+
+#         # for field in service_fields:
+#         #     if not cleaned_data.get(service_field):
+#         #         self.add_error(field,_('Please check every box to confirm your appointment'))
+#         return cleaned_data 

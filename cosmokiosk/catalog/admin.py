@@ -11,10 +11,10 @@ class ClientAdmin(admin.ModelAdmin): # For the Client_Waiver model
     list_per_page = 25
 
 class QuestionAdmin(admin.ModelAdmin): # For the Feedback_Questions model
-    pass 
+    list_display = ("question", "question_text") 
 
 class ResponsesAdmin(admin.ModelAdmin): # For the Feedback model
-    pass
+    list_display = ("questions", "feedback_answer", "client")
 
 class WaxingAdmin(admin.ModelAdmin): # For the Waxing_Waiver model
     pass
