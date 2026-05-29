@@ -1,34 +1,51 @@
 <html> 
-</head>
-   <meta charset="utf-8">
+<head>
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title> Cosmetology Form</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="sign.css">
+</head>
 <body>
 
 <div class="form-box">
   <h1>Welcome to Cosmetology</h1>
-
-  <p>
-    Recognize that students are performing the work done in this school and will be monitored by a licensed instructor.
-  </p>
-  
+  <p>Recognize that students are performing the work done in this school and will be monitored by a licensed instructor.</p>
   <p> Charge for materials used only, no charge for services</p>
 
 
+  <form method="POST" action="">
 
-    <!-- Full Name -->
-    <label for="fname">Full Name:</label>
-    <input type="text" id="fname" name="fname">
+    {% csrf_token %}
+  
 
 
 
-    <!-- Todays date -->
-    <label for="date">date:</label>
-    <input type="date" id="tdate" name="tdate" 
-           class="date-input">
+
+    <label for="id_first_name">First Name:</label>
+    <input type="text" id="id_first_name" name="first_name" value="{{ form.first_name.value|default:'' }}">
+
+    {% if form.first_name.errors %}
+      <span class="error-text">{{ form.first_name.errors.0}}</span>
+    {% endif %}
+
+
+    <label for="id_last_name">Last Name:</label>
+    <input type="text" id="id_last_name" name="last_name" value="{{ form.last_name.value|default:'' }}">
+
+    {% if form.last_name.errors %}
+      <span class="error-text">{{ form.last_name.errors.0}}</span>
+    {% endif %}
+
+
+
+    <label for="id_date_time">Date:</label>
+    <input type="date" id="id_date_time" name="date_time" class=""date-input value="{{ form.date.value|default:'' }}">
+    
+    {% if form.date_time.errors %}
+      <span class="error-text">{{ form.date_time.errors.0}}</span>
+    {% endif %}
 
     <input type="submit" value="Submit">
 
