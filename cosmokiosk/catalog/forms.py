@@ -91,20 +91,20 @@ class Feedback(forms.ModelForm):
                 'rows': 4
             }))
 # bug testing comment  
-# class Services(forms.ModelForm):
-#     class Meta:
-#         model = Services
-#         service_fields = ['service_name']
-#         fields = "__all__"
+class Services(forms.ModelForm):
+    class Meta:
+        model = Services
+        service_fields = ['service_name']
+        fields = "__all__"
 
-#     selection_choice = forms.CharField(
-#         required=True)
+    selection_choice = forms.CharField(
+        required=True)
 
-#     def clean_selection(self):
-#         cleaned_data = super().clean()
+    def clean_selection(self):
+        cleaned_data = super().clean()
 
-#         # for field in service_fields:
-#         #     if not cleaned_data.get(service_field):
-#         #         self.add_error(field,_('Please check every box to confirm your appointment'))
-#         return cleaned_data 
+        # for field in service_fields:
+        #     if not cleaned_data.get(service_field):
+        #         self.add_error(field,_('Please check every box to confirm your appointment'))
+        return cleaned_data 
 # this thing breaks the ENTIRE code kayne or sarah you better fix this
