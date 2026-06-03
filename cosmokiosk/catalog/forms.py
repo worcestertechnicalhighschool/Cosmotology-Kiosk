@@ -95,6 +95,7 @@ class Feedback(forms.ModelForm):
 #     class Meta:
 #         model = Services
 #         service_fields = ['service_name']
+#         fields = "__all__"
 
 #     selection_choice = forms.CharField(
 #         required=True)
@@ -106,3 +107,4 @@ class Feedback(forms.ModelForm):
 #         #     if not cleaned_data.get(service_field):
 #         #         self.add_error(field,_('Please check every box to confirm your appointment'))
 #         return cleaned_data 
+# this thing breaks the ENTIRE code kayne or sarah you better fix this

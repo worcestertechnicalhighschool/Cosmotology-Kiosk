@@ -10,5 +10,6 @@ urlpatterns = [
     path('services', views.services_page, name='services'),
     path('waiver', views.client_waiver_view, name='client_waiver'),
     path('waxing', views.waiver_view, name='waxing_waiver'),
-    path('feedback-questions', views.feedback_questions_view, name='feedback_questions')
+    path('feedback-questions', views.feedback_questions_view, name='feedback_questions'),
+
     ]
