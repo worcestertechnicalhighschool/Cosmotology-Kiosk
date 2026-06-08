@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Survey Form</title>
-   <meta charset="utf-8">
+        <meta charset="UTF-8">
+
+        {% load static %}
+
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title> Cosmetology Form</title>
+        <title> Feedback Form</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="feedback.css">
+        <link rel="stylesheet" href="{% static 'css/feedback.css' %}">
 
 </head>
-
 <body>
 
 <div class="form-box">
@@ -99,7 +99,7 @@
             <textarea placeholder="Type your feedback here..."></textarea>
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit" onclick="window.location.href='welcome'">Submit</button>
 
     </form>
 </div>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html> 
 <head>
@@ -10,7 +9,7 @@
         <title> Cosmetology Form</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="{% static 'catalog/signin.css' %}">
+        <link rel="stylesheet" href="{% static 'css/signin.css' %}">
 </head>
 <body>
 
@@ -32,7 +31,6 @@
     {% endif %}
 
 
-
     <label for="id_first_name">First Name:</label>
     <input type="text" id="id_first_name" name="first_name" value="{{ form.first_name.value|default:'' }}">
 
@@ -49,7 +47,6 @@
     {% endif %}
 
 
-
     <label for="id_date_time">Date:</label>
     <input type="date" id="id_date_time" name="date_time" class="date-input" value="{{ form.date.value|default:'' }}">
     
@@ -57,7 +54,8 @@
       <span class="error-text">{{ form.date_time.errors.0}}</span>
     {% endif %}
 
-    <input type="submit" value="Submit">
+    <button type="submit" onclick="window.location.href='services'">Submit</button>
+
 
   </form>
 </div>

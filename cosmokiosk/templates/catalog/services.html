@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Survey Form</title>
-    <link rel="stylesheet" href="{% static 'catalog/services.css' %}">
+      <meta charset="UTF-8">
+
+      {% load static %}
+
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Survey Form</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link rel="stylesheet" href="{% static 'css/services.css' %}">
+
+
 </head>
 
 <body>
 
 <h1>What are you getting done today</h1>
 
-<form onsubmit="return checkService()">
+<form onsubmit="return checkServices(event)">
 
 <label class="container">Perm
   <input type="checkbox" id="perm">
@@ -43,15 +50,27 @@
 </form>
 
 <script>
-function checkService() {
-  let waxing = document.getElementById("waxing").checked;
+function checkServices(event) {
+  const perm = document.getElementById("perm").checked;
+  const color = document.getElementById("color").checked;
+  const hair = document.getElementById("hair").checked;
+  const waxing = document.getElementById("waxing").checked;
+  const nails = document.getElementById("nails").checked;
 
-  if (waxing) {
-    window.location.href = "waxing.html"; 
-    return false;
+   if (waxing) {
+    window.location.href = "{% url 'client_waiver' %}";
+    return false; 
   }
-}
+
+  if (perm || color || hair || nails) {
+    window.location.href = "{% url 'welcome' %}";
+    return false; 
+  } else {
+    alert("Please select at least one service before submitting.");
+    return false;
+}}
 </script>
+
 
 </body>
 </html>

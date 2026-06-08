@@ -15,7 +15,6 @@ class ClientWaiverForm(forms.ModelForm):
     def clean_date_time(self):
         date_time_value = self.cleaned_data.get('date_time')
         if date_time_value:
-            # Handle both DateField or DateTimeField structures gracefully
             if isinstance(date_time_value, datetime.datetime):
                 check_date = date_time_value.date()
             else:
@@ -55,7 +54,7 @@ class ClientWaiverForm(forms.ModelForm):
 class Waxing_Waiver(forms.ModelForm):
     class Meta:
         model = Waxing_Waiver
-        fields = ['medicine', 'allergy', 'soap_use', 'exposed', 'health_issues', 'timestamp', 'agreement', 'client_info']
+        fields = ['medicine', 'allergy', 'soap_use', 'exposed', 'health_issues', 'agreement', 'client_info']
 
     def clean(self):
         cleaned_data = super().clean()
@@ -64,7 +63,7 @@ class Waxing_Waiver(forms.ModelForm):
             if not cleaned_data.get(field):
                 self.add_error(field,_('Please check every box to confirm your waiver agreement'))
         return cleaned_data        
-    
+
 
 class Feedback_Questions(forms.ModelForm):
     class Meta:
@@ -83,7 +82,7 @@ class Feedback_Questions(forms.ModelForm):
     )
 class Feedback(forms.ModelForm):
     class Meta: 
-        model = Feedback;
+        model = Feedback
         fields = ['feedback_answer','feedback_question','client']
 
         feedback_answer = forms.CharField(
@@ -91,5 +90,17 @@ class Feedback(forms.ModelForm):
             widget=forms.Textarea(attrs={
                 'rows': 4
             }))
+class Services(forms.ModelForm):
+    class Meta:
+        model = Services
+        fields = ['service_name', 'selection', 'client_info']
+
+        service_name = forms.CharField(
+            required=True
+        )
+
+
+        
+       
 # bug testing comment        
       

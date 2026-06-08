@@ -16,7 +16,7 @@ def signin_view(request):
         if form.is_valid():
             form.save()
             print("--- DATA SUCCESSFULLY SAVED TO DATABASE ---")
-            return redirect('welcome')
+            return redirect('services')
         else: 
             print("--- FORM VALIDATION FAILED ---")
             print(form.errors.as_data())
@@ -52,26 +52,12 @@ def client_waiver_view(request):
     return signin_view(request)
 
 
-def feedback_questions_view(request):
-    if request.method == 'POST':
-        form = Feedback_Questions(request.POST)
-
-        if form.is_valid():
-            form.save()
-            return redirect('success_page')
-        
-    else:
-        form = Feedback_Questions()
-    return render(request, 'feedback.html', {
-        'form': form
-    })
-
 def feedback_view(request):
     if request.method == "POST":
         form = Feedback(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('successful_page')
+            return redirect('welcome')
     
     else:
         form = Feedback()
