@@ -7,7 +7,7 @@
 - Sign-In Page: Clients will choose between a Sign-In button and Sign-out. Signing-In will take them to the waiver page, and signing-out will take them to the feedback page.
 - Waiver Page: Clients are required to enter their name, signature and date of signature. From this page, they will be directed to the services page.
 - Services Page: Choosing from a dropdown what services will be done. If waxing is picked, clients are required to go to the waxing waiver page and complete the form. If not, clients will be directed back to the sign-in page.
-- Waxing Waiver: A lis of questions are meant to be answered (Product usage, allergies, etc). Then, the client will be taken to the feedback.
+- Waxing Waiver: A list of questions are meant to be answered (Product usage, allergies, etc). Then, the client will be taken to the feedback.
 - Feedback Page: 
 
 

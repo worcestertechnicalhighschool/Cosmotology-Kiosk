@@ -55,10 +55,11 @@ class Waxing_Waiver(forms.ModelForm):
     class Meta:
         model = Waxing_Waiver
         fields = ['medicine', 'allergy', 'soap_use', 'exposed', 'health_issues', 'agreement', 'client_info']
+        fields = ['medicine', 'allergy', 'soap_use', 'exposed', 'health_issues', 'agreement', 'client_info']
 
     def clean(self):
         cleaned_data = super().clean()
-        boolean_fields = ['medicine', 'allergy', 'soap_use', 'exposed', 'health_issues', 'timestamp', 'agreement', 'client_info']
+        boolean_fields = ['medicine', 'allergy', 'soap_use', 'exposed', 'health_issues', 'agreement', 'client_info']
         for field in boolean_fields:
             if not cleaned_data.get(field):
                 self.add_error(field,_('Please check every box to confirm your waiver agreement'))
@@ -90,17 +91,21 @@ class Feedback(forms.ModelForm):
             widget=forms.Textarea(attrs={
                 'rows': 4
             }))
+# bug testing comment  
 class Services(forms.ModelForm):
     class Meta:
         model = Services
-        fields = ['service_name', 'selection', 'client_info']
+        service_fields = ['service_name']
+        fields = "__all__"
 
-        service_name = forms.CharField(
-            required=True
-        )
+    selection_choice = forms.CharField(
+        required=True)
 
+    def clean_selection(self):
+        cleaned_data = super().clean()
 
-        
-       
-# bug testing comment        
-      
+        # for field in service_fields:
+        #     if not cleaned_data.get(service_field):
+        #         self.add_error(field,_('Please check every box to confirm your appointment'))
+        return cleaned_data 
+# this thing breaks the ENTIRE code kayne or sarah you better fix this

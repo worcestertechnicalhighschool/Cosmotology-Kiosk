@@ -1,7 +1,7 @@
 from django.contrib import admin
 #from django.contrib.admin import ModelAdmin
 #from django.apps import apps
-from .models import Client_Waiver
+from .models import Client_Waiver, Feedback_Questions, Feedback, Waxing_Waiver, Services
 
 
 
@@ -11,10 +11,10 @@ class ClientAdmin(admin.ModelAdmin): # For the Client_Waiver model
     list_per_page = 25
 
 class QuestionAdmin(admin.ModelAdmin): # For the Feedback_Questions model
-    pass 
+    list_display = ("question", "question_text") 
 
 class ResponsesAdmin(admin.ModelAdmin): # For the Feedback model
-    pass
+    list_display = ("questions", "feedback_answer", "client")
 
 class WaxingAdmin(admin.ModelAdmin): # For the Waxing_Waiver model
     pass
@@ -22,9 +22,19 @@ class WaxingAdmin(admin.ModelAdmin): # For the Waxing_Waiver model
 class ServiceAdmin(admin.ModelAdmin): # For the Services model
     pass
 
+models_and_admins = [
+     (Client_Waiver, ClientAdmin),
+     (Feedback_Questions, QuestionAdmin),
+     (Feedback, ResponsesAdmin),
+     (Waxing_Waiver, WaxingAdmin),
+     (Services, ServiceAdmin),
+]
 
+for model, admins in models_and_admins:
+         admin.site.register(model, admins)
 
-admin.site.register(Client_Waiver, ClientAdmin)
+# admin.site.register(Client_Waiver, ClientAdmin)
+# admin.site.register(Feedback_Questions, QuestionAdmin) #delete after testing
 
 
 
