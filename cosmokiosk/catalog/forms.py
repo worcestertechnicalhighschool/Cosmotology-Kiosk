@@ -81,16 +81,18 @@ class Feedback_Questions(forms.ModelForm):
             'placeholder': 'optional feedback'
         })
     )
+
 class Feedback(forms.ModelForm):
     class Meta: 
         model = Feedback
-        fields = ['feedback_answer','feedback_question','client']
+        fields = ['feedback_answer','client'] #,'feedback_question'
 
         feedback_answer = forms.CharField(
             required=True,
             widget=forms.Textarea(attrs={
                 'rows': 4
             }))
+
 # bug testing comment  
 class Services(forms.ModelForm):
     class Meta:

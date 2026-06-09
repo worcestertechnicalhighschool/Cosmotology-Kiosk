@@ -53,7 +53,7 @@ class Feedback(models.Model):
     
 class Waxing_Waiver(models.Model):
     # Questions
-    timestamp = models.DateTimeField(auto_now_add=True)
+    # timestamp = models.DateTimeField(auto_now_add=True) <-- needs attention
     medicine = models.BooleanField(verbose_name="Medicine", default=False) #Field that handles the use of certain medicine
     allergy = models.BooleanField(verbose_name="Bee Allergy", default=False) #Field that handles client allergy to bees
     soap_use = models.BooleanField(verbose_name="Skin Care Use", default= False)
