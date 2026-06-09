@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'theme',
 ]
 
+if DEBUG:
+    # Adds items only while in DEBUG mode
+    INSTALLED_APPS += ["django_browser_reload"]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -52,6 +56,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+if DEBUG:
+    #Adds items only while in DEBUG mode
+    MIDDLEWARE += ["django_browser_reload.middleware.BrowserReloadMiddleware"]
 
 ROOT_URLCONF = 'cosmokiosk.urls'
 
@@ -130,4 +138,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 TAILWIND_APP_NAME = 'theme'
 
 # Other
-# NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'
+NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'

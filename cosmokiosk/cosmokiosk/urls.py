@@ -25,3 +25,9 @@ urlpatterns = [
     path('', include('catalog.urls')), 
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+if settings.DEBUG:
+    # Include while in DEBUG mode
+    urlpatterns += [
+        path("__reload__/", include("django_browser_related.urls"))
+    ]
