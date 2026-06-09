@@ -47,13 +47,6 @@
     {% endif %}
 
 
-    <label for="id_date_time">Date:</label>
-    <input type="date" id="id_date_time" name="date_time" class="date-inoput" value="{{ form.date_time.value|stringformat:'Y-m-d'|default:'' }}">
-    
-    {% if form.date_time.errors %}
-      <span class="error-text">{{ form.date_time.errors.0}}</span>
-    {% endif %}
-
     <button type="submit" onclick="window.location.href='services'">Submit</button>
 
 

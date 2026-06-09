@@ -10,19 +10,19 @@ from django.utils import timezone
 class ClientWaiverForm(forms.ModelForm):
     class Meta:
         model = Client_Waiver
-        fields = ['first_name', 'last_name', 'date_time']
+        fields = ['first_name', 'last_name']
 
-    def clean_date_time(self):
-        date_time_value = self.cleaned_data.get('date_time')
-        if date_time_value:
-            if isinstance(date_time_value, datetime.datetime):
-                check_date = date_time_value.date()
-            else:
-                check_date = date_time_value
-
-            if check_date < timezone.localdate():
-                raise ValidationError(_('Invalid - date is in the past ')) 
-        return date_time_value
+#    def clean_date_time(self):
+ #       date_time_value = self.cleaned_data.get('date_time')
+  #      if date_time_value:
+   #         if isinstance(date_time_value, datetime.datetime):
+    #            check_date = date_time_value.date()
+     #       else:
+      #          check_date = date_time_value
+#
+ #           if check_date < timezone.localdate():
+  #              raise ValidationError(_('Invalid - date is in the past ')) 
+   #     return date_time_value
 
          
     
@@ -51,19 +51,25 @@ class ClientWaiverForm(forms.ModelForm):
     
     
     
-class Waxing_Waiver(forms.ModelForm):
+class WaxingWaiverForm(forms.ModelForm):
     class Meta:
         model = Waxing_Waiver
-        fields = ['medicine', 'allergy', 'soap_use', 'exposed', 'health_issues', 'agreement', 'client_info']
         fields = ['medicine', 'allergy', 'soap_use', 'exposed', 'health_issues', 'agreement', 'client_info']
 
     def clean(self):
         cleaned_data = super().clean()
         boolean_fields = ['medicine', 'allergy', 'soap_use', 'exposed', 'health_issues', 'agreement', 'client_info']
+        missing = []
         for field in boolean_fields:
-            if not cleaned_data.get(field):
-                self.add_error(field,_('Please check every box to confirm your waiver agreement'))
-        return cleaned_data        
+            value = cleaned_data.get(field)
+
+            if value in [None, "", False]:
+                missing.append(field)
+
+        if missing: 
+            raise forms.ValidationError("Please complete all required fields before submitting the waiver")
+
+        return cleaned_data   
 
 
 class Feedback_Questions(forms.ModelForm):

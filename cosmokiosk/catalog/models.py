@@ -24,7 +24,7 @@ import uuid
 class Client_Waiver(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    date_time = models.DateField(default=timezone.now)
+    date_time = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

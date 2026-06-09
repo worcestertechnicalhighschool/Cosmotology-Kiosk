@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import Waxing_Waiver, ClientWaiverForm, Feedback_Questions, Feedback
+from .forms import Waxing_Waiver, ClientWaiverForm, Feedback_Questions, Feedback, WaxingWaiverForm
 from django.utils import timezone
 
 
@@ -15,6 +15,9 @@ def signin_view(request):
     if request.method == "POST":
         form = ClientWaiverForm(request.POST)
         if form.is_valid():
+            client_waiver = form.save(commit=False)
+            client_waiver.date_time = timezone.now()
+            client_waiver.save()
             form.save()
             print("--- DATA SUCCESSFULLY SAVED TO DATABASE ---")
             return redirect('services')
@@ -33,20 +36,20 @@ def services_page(request):
     return render(request, 'catalog/services.html')
 
 
-
-
 #this is the place for all the forms stuff
 
 def waiver_view(request):
     if request.method == "POST":
-        form = Waxing_Waiver(request.POST)
-
+        form = WaxingWaiverForm(request.POST)
         if form.is_valid():
+            print("VALID")
             form.save()
-            return redirect
+            return redirect('welcome')
+        else:
+            print("INVALID", form.errors)
     else:
-        form = Waxing_Waiver()
-    return render(request, 'waiver_template.html', {'form':form})
+        form = WaxingWaiverForm()
+    return render(request, 'catalog/waxing.html', {'form':form})
 
 
 def client_waiver_view(request):
