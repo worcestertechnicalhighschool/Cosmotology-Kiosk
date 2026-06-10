@@ -116,4 +116,4 @@ class Services(forms.ModelForm):
         #     if not cleaned_data.get(service_field):
         #         self.add_error(field,_('Please check every box to confirm your appointment'))
         return cleaned_data 
-# this thing breaks the ENTIRE code kayne or sarah you better fix this
+

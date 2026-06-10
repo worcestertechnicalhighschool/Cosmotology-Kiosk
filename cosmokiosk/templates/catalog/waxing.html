@@ -1,23 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Survey Form</title>
-   <meta charset="utf-8">
-    {% load static %}
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">    
         <title>Waxing Form</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
          <link rel="stylesheet" href="{% static 'css/waxing.css' %}">
 
 </head>
-
 <body>
 
 <div class="form-box">
     <h2>Waxing Form</h2>
-    <form method="POST">
+    <form action="{% url 'welcome' %}?thank=1" method="POST">
+         {% csrf_token %}
+
+         
         <!-- Question 1 -->
         <div class="question">
             <p>1. Are you using Retin-A, Accutane, Glycolic Acid, or Alpha Hydroxy treatment?</p>
@@ -59,19 +58,18 @@
 <hr>
 
     <label for="fname">Full Name:</label>
-    <input type="text" id="fname" name="fname">
+    <input type="text" id="fname" name="fname" value="{{ full_name }}">
 
-        <label for="sname">Signature:</label>
+    <label for="sname">Signature:</label>
     <input type="text" id="sname" name="sname">
 
 
-        {{ form.as_p }}
+        
 
-        <button type="submit">Submit</button>
+<button type="submit">Submit</button>
         
 
     </form>
 </div>
 
-</body>
-</html>
+

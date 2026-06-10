@@ -16,14 +16,27 @@
 
 
 </head>
-   <body>
-<h1>Welcome to Cosmetology </h1>
- <p>Recognize that students are performing the work done in this school and will be monitored by a licensed instructor. Therefore your patience and support is appreciated.</p>
-    
-<div class="btn-group" >
- <a href="{% url 'sign-in' %}">Check-In </a>
- <a href="{% url 'feedback' %}">Check-out </a>
-</div>
+<body>
+   <h1>Welcome to Cosmetology </h1>
+      <div class="message">
+      <h1> Thank you for checking-in, someone will be with you shortly! </h1>
+   </div>
+   <div class="btn-group" >
+      <a href="{% url 'sign-in' %}">Check-In </a>
+      <a href="{% url 'feedback' %}">Check-Out </a>
+   </div>
+   <script>
+      (function() {
+         var params = new URLSearchParams(window.location.search);
+         if (params.get('thank') === '1') {
+            alert('thank uu');
+            params.delete('thank');
+            var newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+            window.history.replaceState({}, document.title, newUrl);
+         }
+      })();
+   </script>
+</body>
 </html>
 
 

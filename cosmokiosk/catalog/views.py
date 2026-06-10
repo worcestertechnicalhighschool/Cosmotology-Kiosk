@@ -7,9 +7,6 @@ from django.utils import timezone
 def index(request):
     return render(request, 'catalog/welcome.html') 
 
-def feedback_view(request):
-    return render(request, 'catalog/feedback.html')
-
 
 def signin_view(request):
     if request.method == "POST":
@@ -20,6 +17,9 @@ def signin_view(request):
             client_waiver.save()
             form.save()
             print("--- DATA SUCCESSFULLY SAVED TO DATABASE ---")
+            first_name = form.cleaned_data.get('first_name', '')
+            last_name = form.cleaned_data.get('last_name', '')
+            request.session['saved_full_name'] = f"{first_name} {last_name}".strip()
             return redirect('services')
         else: 
             print("--- FORM VALIDATION FAILED ---")
@@ -44,12 +44,15 @@ def waiver_view(request):
         if form.is_valid():
             print("VALID")
             form.save()
+            messages.success(request, "Thawnk yuah")
             return redirect('welcome')
         else:
             print("INVALID", form.errors)
     else:
         form = WaxingWaiverForm()
-    return render(request, 'catalog/waxing.html', {'form':form})
+
+    full_name = request.session.get('saved_full_name', '')
+    return render(request, 'catalog/waxing.html', {'form':form, 'full_name':full_name})
 
 
 def client_waiver_view(request):
@@ -66,8 +69,6 @@ def feedback_view(request):
     else:
         form = Feedback()
 
-    return render(request, 'catalog/feedback.html', {
-        'form':form
-    })
+    return render(request, 'catalog/feedback.html', {'form':form})
 #Big L said to recieve the data from data and time
 #Use time.now, so the server gets the time and the date

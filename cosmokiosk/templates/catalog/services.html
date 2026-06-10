@@ -63,7 +63,7 @@ function checkServices(event) {
   }
 
   if (perm || color || hair || nails) {
-    window.location.href = "{% url 'welcome' %}";
+    window.location.href = "{% url 'welcome' %}?thank=1";
     return false; 
   } else {
     alert("Please select at least one service before submitting.");

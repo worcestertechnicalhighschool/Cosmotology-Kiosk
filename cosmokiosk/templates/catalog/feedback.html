@@ -1,14 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
         <meta charset="UTF-8">
-
-        {% load static %}
-
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
         <title> Feedback Form</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="{% static 'css/feedback.css' %}">
 
 </head>
@@ -16,10 +13,12 @@
 
 <div class="form-box">
     <h2>Client Feedback </h2>
-    <form>
+    <form action="{% url 'welcome' %}" method="POST">
+        {% csrf_token %}
+
         <!-- Question 1 -->
         <div class="question">
-            <p>How would you rate  your visit today?</p>
+            <p>1.How would you rate  your visit today?</p>
             <label><input type="radio" name="q1"> Excellent</label>
             <label><input type="radio" name="q1"> Good</label>
             <label><input type="radio" name="q1"> Fair</label>

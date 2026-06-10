@@ -15,20 +15,15 @@
 
 <div class="form-box">
   <h1>Welcome to Cosmetology</h1>
-  <p>Recognize that students are performing the work done in this school and will be monitored by a licensed instructor.</p>
-  <p> Charge for materials used only, no charge for services</p>
+  <p>I recognize that students are performing the work done in this school and will be monitored by a licensed instructor.</p>
+  <p> Charges are for materials used only, no charge for services.</p>
 
 
   <form method="POST" action="">
 
     {% csrf_token %}
   
-    {% if form.errors %}
-        <div style="background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 6px; margin-bottom: 20px; text-align: left;">
-            <strong>Please correct the following errors:</strong>
-            {{ form.errors }}
-        </div>
-    {% endif %}
+    
 
 
     <label for="id_first_name">First Name:</label>
@@ -47,7 +42,7 @@
     {% endif %}
 
 
-    <button type="submit" onclick="window.location.href='services'">Submit</button>
+    <button type="submit">Submit</button>
 
 
   </form>
