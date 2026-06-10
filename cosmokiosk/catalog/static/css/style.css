@@ -14,7 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Poppins', sans-serif;
-  background: #fff;
+ background-color: #FCF7FF;
   color: #333;
   text-align: center;
 }

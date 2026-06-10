@@ -5,9 +5,10 @@
   box-sizing: border-box;
 }
 
-/* PAGE */
+
 body {
   min-height: 100vh;
+  background-color: #FCF7FF;
 
   display: flex;
   flex-direction: column;
@@ -19,17 +20,19 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* TITLE */
+
 h1 {
   margin-bottom: 15px;
 }
 
-/* PARAGRAPH */
+
 p {
-  max-width: 600px;
+  max-width: 900px;
   margin-bottom: 40px;
   line-height: 1.5;
-  font-size: 1.5rem;
+  font-size: 2.0rem;
+  font-weight: 50;
+  color: #000000;
 }
 
 
@@ -41,10 +44,10 @@ p {
   justify-content: center;
   align-items: center;
 
-  flex: 1; /* THIS pushes it to the middle */
+  flex: 1; 
 }
 
-/* BUTTON STYLE */
+
 .btn-group a {
   display: inline-block;
   text-decoration: none;
@@ -55,15 +58,21 @@ p {
   border-radius: 15px;
   font-weight: bold;
 
-  background: #333;
-  color: white;
+  background:#FD87DF;
+  color: #f2f5ff;
 
   transition: 0.3s;
 }
 
 .btn-group a:hover {
   transform: scale(1.05);
-  background: #555;
+  background: #7C90DB;
 }
 
-
+.message {
+  color: #87af6b;
+  border-radius: 8px;
+  justify-content:center;
+  text-align:center;
+  display:flex;
+}

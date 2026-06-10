@@ -1,9 +1,16 @@
 
+body{
+  background-color: #FCF7FF;
+}
+/* QUESTIONS */
 .question {
   margin: 15px 0;
   text-align: left;
+  color: #000000;
+  font-size: 31px;
 }
 
+/* LABELS */
 label {
   margin-right: 15px;
   cursor: pointer;
@@ -11,20 +18,20 @@ label {
   width: 135px;
 }
 
-input[type="radio"] {
-  margin-right: 5px;
-}
 
+
+/* TEXTAREA */
 textarea {
   width: 100%;
   height: 80px;
   border-radius: 8px;
-  border: 1px solid #ccc; 
+  border: 1px solid #030202; 
   padding: 10px;
   margin-top: 10px;
-  resize: none;
-  outline: none;
 }
+
+
+
 
 button {
   width: 100%;
@@ -32,8 +39,8 @@ button {
   padding: 10px;
   border: none;
   border-radius: 8px;
-  background: cyan;
-  color: cyan;
+  background:#fd87df;
+  colo:#FD87DF;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;

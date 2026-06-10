@@ -14,7 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+  background-color: #FCF7FF;
   color: #333;
   text-align: center;
 }
@@ -47,31 +47,17 @@ p {
   border: none;
   border-radius: 15px;
   cursor: pointer;
-  color: white;
+  
+  background:#FD87DF;
+
   font-weight: bold;
   transition: all 0.25s ease;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* CHECK-IN BUTTON */
-#check-in {
-  background: linear-gradient(135deg, #28a745, #4cd964);
-}
-
-/* CHECK-OUT BUTTON */
-#check-out {
-  background: linear-gradient(135deg, #ff4d6d, #ff6b81);
-}
-
-/* HOVER EFFECT */
-#btn-group button:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-}
-
-/* CLICK EFFECT */
-#btn-group button:active {
-  transform: scale(0.95);
+input[type=submit]:hover {
+  transform: scale(1.05);
+  background: #7C90DB;
 }
 
 .form-box {
@@ -83,7 +69,7 @@ p {
 form {
   border-radius: 12px;
   background-color: #f2f2f2;
-  padding: 30px;
+  padding: 30px;hey
   text-align: left;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
@@ -103,7 +89,7 @@ input[type=text], select {
 
 button {
   width: 100%;
-  background-color: #555;
+  background-color: #FD87DF;
   color: white;
   padding: 14px;
   margin-top: 25px;
@@ -115,12 +101,13 @@ button {
   transition: background-color 0.2s ease;
 }
 
-
-.error-text {
+.error-text,
+.errorlist {
   display: block;
-  color: #dc3545;
-  font-size: 0.85rem;
-  margin-bottom: 8px;
-  text-align: left;
-  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: red;
 }
+ label {
+  margin-top: 20px;
+ }
