@@ -24,12 +24,10 @@
    </div>
    <script>
       (function() {
-         var params = new URLSearchParams(window.location.search);
+         const params = new URLSearchParams(window.location.search);
+
          if (params.get('thank') === '1') {
             alert('Thank you for checking-in, someone will be with you shortly!');
-            params.delete('thank');
-            var newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
-            window.history.replaceState({}, document.title, newUrl);
          }
       })();
    </script>
