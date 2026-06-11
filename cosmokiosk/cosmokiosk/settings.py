@@ -39,13 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalog.apps.CatalogConfig',
-    'tailwind',
-    'theme',
+    # 'tailwind', leave temporarily disabled
+    # 'theme', leave temporarily disabled
 ]
 
-if DEBUG:
-    # Adds items only while in DEBUG mode
-    INSTALLED_APPS += ["django_browser_reload"]
+# if DEBUG:
+#     # Adds items only while in DEBUG mode
+#     INSTALLED_APPS += ["django_browser_reload"] leave temporarily disabled
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -57,9 +57,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-if DEBUG:
-    #Adds items only while in DEBUG mode
-    MIDDLEWARE += ["django_browser_reload.middleware.BrowserReloadMiddleware"]
+# if DEBUG:
+#     #Adds items only while in DEBUG mode
+#     MIDDLEWARE += ["django_browser_reload.middleware.BrowserReloadMiddleware"] leave temporarily disabled
 
 ROOT_URLCONF = 'cosmokiosk.urls'
 

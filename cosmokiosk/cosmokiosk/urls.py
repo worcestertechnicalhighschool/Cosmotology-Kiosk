@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("__reload__/", include("django_browser_reload.urls")),
+    # path("__reload__/", include("django_browser_reload.urls")), leave temporarily disabled
     path('', include('catalog.urls')), 
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
@@ -31,4 +31,4 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 #     # Include while in DEBUG mode
 #     urlpatterns += [
 #         path("__reload__/", include("django_browser_related.urls"))
-#     ] keep it
+#     ] leave temporarily disabled
