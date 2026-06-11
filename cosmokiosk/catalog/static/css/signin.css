@@ -8,6 +8,7 @@
 /* PAGE */
 html, body {
   height: 100%;
+  margin-top: 3%;
 }
 
 body {
@@ -100,6 +101,13 @@ button {
   font-weight: bold;
   transition: background-color 0.2s ease;
 }
+
+button:hover{
+  transform: scale(1.05);
+  background: #7C90DB;
+}
+
+
 
 .error-text,
 .errorlist {

@@ -14,6 +14,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding-top: 60px;
+  margin-top: 5%;
 }
 
 /* TITLE */
@@ -97,7 +98,7 @@ button {
   font-weight: bold;
   border: none;
   border-radius: 12px;
- background: #7C90DB;
+  background: #FD87DF;
   color: white;
   cursor: pointer;
 }

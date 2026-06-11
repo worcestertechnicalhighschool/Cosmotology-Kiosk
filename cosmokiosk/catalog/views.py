@@ -15,7 +15,6 @@ def signin_view(request):
             client_waiver = form.save(commit=False)
             client_waiver.date_time = timezone.now()
             client_waiver.save()
-            form.save()
             print("--- DATA SUCCESSFULLY SAVED TO DATABASE ---")
             first_name = form.cleaned_data.get('first_name', '')
             last_name = form.cleaned_data.get('last_name', '')

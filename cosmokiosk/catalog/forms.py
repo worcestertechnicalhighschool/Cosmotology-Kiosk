@@ -8,6 +8,11 @@ from django.utils import timezone
 
 
 class ClientWaiverForm(forms.ModelForm):
+
+    consent = forms.BooleanField(
+        required=True,
+        error_messages={'required': 'You must accept the Terms of Service please check the box to agree.'})
+
     class Meta:
         model = Client_Waiver
         fields = ['first_name', 'last_name']
@@ -23,6 +28,7 @@ class ClientWaiverForm(forms.ModelForm):
  #           if check_date < timezone.localdate():
   #              raise ValidationError(_('Invalid - date is in the past ')) 
    #     return date_time_value
+        
 
          
     
