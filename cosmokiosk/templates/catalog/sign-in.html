@@ -26,8 +26,7 @@
   
     
 
-
-    <label for="id_first_name">First Name:</label>
+  <div class="center-section"><label for="id_first_name">First Name:</label>
     <input type="text" id="id_first_name" name="first_name" value="{{ form.first_name.value|default:'' }}">
 
     {% if form.first_name.errors %}
@@ -41,14 +40,15 @@
     {% if form.last_name.errors %}
       <span class="error-text">{{ form.last_name.errors.0}}</span>
     {% endif %}
-
+</div>
+    
 
     <label class="containter">
       <input type="checkbox" id="consent" name="consent">
 
       Acknowledgement
 
-      <span class="'checkmark"></span>
+      <span class="checkmark"></span>
     </label>
 
     {% if form.consent.errors %}

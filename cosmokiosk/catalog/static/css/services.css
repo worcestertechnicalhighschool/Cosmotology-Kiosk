@@ -103,3 +103,8 @@ button {
   cursor: pointer;
 }
 
+
+button:hover{
+  transform: scale(1.05);
+  background: #7C90DB;
+}

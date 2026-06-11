@@ -17,7 +17,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: #FCF7FF;
   color: #333;
-  text-align: center;
+  
 }
 
 /* MAIN CONTENT SPACING */
@@ -115,7 +115,18 @@ button:hover{
   margin-top: 20px;
   margin-bottom: 20px;
   color: red;
+  text-align: center;
+  font-size: medium;
 }
- label {
-  margin-top: 20px;
- }
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 25px;
+  cursor: pointer;
+  accent-color: #FD87DF; 
+}
+ 
+
+
+
