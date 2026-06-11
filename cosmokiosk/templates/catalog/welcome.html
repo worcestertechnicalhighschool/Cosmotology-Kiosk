@@ -18,9 +18,6 @@
 </head>
 <body>
    <h1>Welcome to Cosmetology </h1>
-      <div class="message">
-      <h1> Thank you for checking-in, someone will be with you shortly! </h1>
-   </div>
    <div class="btn-group" >
       <a href="{% url 'sign-in' %}">Check-In </a>
       <a href="{% url 'feedback' %}">Check-Out </a>
@@ -29,7 +26,7 @@
       (function() {
          var params = new URLSearchParams(window.location.search);
          if (params.get('thank') === '1') {
-            alert('thank uu');
+            alert('Thank you for checking-in, someone will be with you shortly!');
             params.delete('thank');
             var newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
             window.history.replaceState({}, document.title, newUrl);
