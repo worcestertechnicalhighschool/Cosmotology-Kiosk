@@ -13,7 +13,8 @@
 
 <div class="form-box">
     <h2>Client Feedback </h2>
-    <form action="{% url 'welcome' %}" method="POST">
+    <form action="{% url 'welcome' %}" method="POST"
+            onsubmit="alert('Thanks for your feedback!');">
         {% csrf_token %}
 
         <!-- Question 1 -->
@@ -98,7 +99,7 @@
             <textarea placeholder="Type your feedback here..."></textarea>
         </div>
 
-        <button type="submit" onclick="window.location.href='welcome'">Submit</button>
+        <button type="submit">Submit</button>
 
     </form>
 </div>

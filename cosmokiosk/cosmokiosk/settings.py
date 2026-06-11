@@ -39,12 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalog.apps.CatalogConfig',
-<<<<<<< Updated upstream
     # 'tailwind', leave temporarily disabled
     # 'theme', leave temporarily disabled
-=======
-    'theme',
->>>>>>> Stashed changes
 ]
 
 # if DEBUG:
