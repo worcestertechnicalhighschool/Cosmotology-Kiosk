@@ -19,7 +19,8 @@
   <p> Charges are for materials used only, no charge for services.</p>
 
 
-  <form method="POST" action="">
+  <form method="POST" action=""
+    autocomplete="off">
 
     {% csrf_token %}
   
@@ -40,6 +41,19 @@
     {% if form.last_name.errors %}
       <span class="error-text">{{ form.last_name.errors.0}}</span>
     {% endif %}
+
+
+    <label class="containter">
+      <input type="checkbox" id="consent" name="consent">
+
+      Acknowledgement
+
+      <span class="'checkmark"></span>
+    </label>
+
+    {% if form.consent.errors %}
+    <span class="error-text">{{ form.consent.errors.0 }}</span>
+{% endif %}
 
 
     <button type="submit">Submit</button>
