@@ -14,10 +14,7 @@
 <body>
 
 <div class="form-box">
-  <h1>Welcome to Cosmetology</h1>
-  <p>I recognize that students are performing the work done in this school and will be monitored by a licensed instructor.</p>
-  <p> Charges are for materials used only, no charge for services.</p>
-
+  <h1>Welcome to Cosmetology!</h1>
 
   <form method="POST" action=""
     autocomplete="off">
@@ -41,16 +38,16 @@
       <span class="error-text">{{ form.last_name.errors.0}}</span>
     {% endif %}
 </div>
-    
 
+      <p>I recognize that students are performing the work done in this school and will be monitored by a licensed instructor.</p>
+      <p> Charges are for materials used only, no charge for services.</p>
     <label class="containter">
       <input type="checkbox" id="consent" name="consent">
-
       Acknowledgement
-
       <span class="checkmark"></span>
-    </label>
 
+    </label>
+    
     {% if form.consent.errors %}
     <span class="error-text">{{ form.consent.errors.0 }}</span>
 {% endif %}
