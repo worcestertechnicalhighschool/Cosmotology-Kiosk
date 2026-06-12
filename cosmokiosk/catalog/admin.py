@@ -4,8 +4,6 @@ from django.contrib import admin
 from .models import Client_Waiver, Feedback_Questions, Feedback, Waxing_Waiver, Services
 
 
-
-
 class ClientAdmin(admin.ModelAdmin): # For the Client_Waiver model
     list_display = ("first_name", "last_name", "date_time")
     list_per_page = 25
@@ -16,8 +14,9 @@ class QuestionAdmin(admin.ModelAdmin): # For the Feedback_Questions model
 class ResponsesAdmin(admin.ModelAdmin): # For the Feedback model
     list_display = ("questions", "feedback_answer", "client")
 
+
 class WaxingAdmin(admin.ModelAdmin): # For the Waxing_Waiver model
-    pass
+    list_display = ("medicine","allergy","soap_use","exposed","health_issues","agreement","client_info")
 
 class ServiceAdmin(admin.ModelAdmin): # For the Services model
     pass

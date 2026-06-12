@@ -39,11 +39,11 @@ def services_page(request):
 
 def waiver_view(request):
     if request.method == "POST":
+        print("USER SUBMITTED")
         form = WaxingWaiverForm(request.POST)
         if form.is_valid():
             print("VALID")
             form.save()
-            messages.success(request, "Thawnk yuah")
             return redirect('welcome')
         else:
             print("INVALID", form.errors)
@@ -69,5 +69,3 @@ def feedback_view(request):
         form = Feedback()
 
     return render(request, 'catalog/feedback.html', {'form':form})
-#Big L said to recieve the data from data and time
-#Use time.now, so the server gets the time and the date
