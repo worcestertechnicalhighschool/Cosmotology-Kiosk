@@ -17,20 +17,6 @@ class ClientWaiverForm(forms.ModelForm):
         model = Client_Waiver
         fields = ['first_name', 'last_name']
 
-#    def clean_date_time(self):
- #       date_time_value = self.cleaned_data.get('date_time')
-  #      if date_time_value:
-   #         if isinstance(date_time_value, datetime.datetime):
-    #            check_date = date_time_value.date()
-     #       else:
-      #          check_date = date_time_value
-#
- #           if check_date < timezone.localdate():
-  #              raise ValidationError(_('Invalid - date is in the past ')) 
-   #     return date_time_value
-        
-
-         
     
     def clean_first_name(self):
         first_name = self.cleaned_data.get('first_name', '').strip()
@@ -64,17 +50,7 @@ class WaxingWaiverForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        boolean_fields = ['medicine', 'allergy', 'soap_use', 'exposed', 'health_issues', 'agreement', 'client_info']
-        missing = []
-        for field in boolean_fields:
-            value = cleaned_data.get(field)
-
-            if value in [None, "", False]:
-                missing.append(field)
-
-        if missing: 
-            raise forms.ValidationError("Please complete all required fields before submitting the waiver")
-
+        boolean_fields = ['medicine', 'allergy', 'soap_use', 'exposed', 'health_issues', 'agreement', 'client_info'] 
         return cleaned_data   
 
 
