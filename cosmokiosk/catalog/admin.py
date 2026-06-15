@@ -19,7 +19,7 @@ class WaxingAdmin(admin.ModelAdmin): # For the Waxing_Waiver model
     list_display = ("medicine","allergy","soap_use","exposed","health_issues","agreement","client_info")
 
 class ServiceAdmin(admin.ModelAdmin): # For the Services model
-    pass
+    list_display = ("perm", "color", "hairstyle", "waxing", "nails", "client_info")
 
 models_and_admins = [
      (Client_Waiver, ClientAdmin),

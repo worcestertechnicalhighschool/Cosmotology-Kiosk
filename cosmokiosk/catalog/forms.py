@@ -85,17 +85,10 @@ class Feedback(forms.ModelForm):
 class Services(forms.ModelForm):
     class Meta:
         model = Services
-        service_fields = ['service_name']
-        fields = "__all__"
+        fields = ['perm', 'color', 'hairstyle', 'waxing', 'nails', 'client_info']
 
-    selection_choice = forms.CharField(
-        required=True)
-
-    def clean_selection(self):
+    def clean(self):
         cleaned_data = super().clean()
-
-        # for field in service_fields:
-        #     if not cleaned_data.get(service_field):
-        #         self.add_error(field,_('Please check every box to confirm your appointment'))
-        return cleaned_data 
+        service_fields = ['perm', 'color', 'hairstyle', 'waxing', 'nails', 'client_info'] 
+        return cleaned_data  
 

@@ -69,8 +69,12 @@ class Waxing_Waiver(models.Model):
 
 
 class Services(models.Model):
-    service_name = models.CharField(max_length=100)
-    selection = models.CharField(max_length=200)
+
+    perm = models.BooleanField(verbose_name="perm", default=False )
+    color = models.BooleanField(verbose_name="color", default=False )
+    hairstyle = models.BooleanField(verbose_name="hairstyle", default=False )
+    waxing = models.BooleanField(verbose_name="waxing", default=False)
+    nails = models.BooleanField(verbose_name="nails", default=False)
     client_info = models.ForeignKey('Client_Waiver', on_delete=models.SET_NULL, blank=True, null=True)
     
     def __str__(self):
