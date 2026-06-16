@@ -36,11 +36,17 @@ class Client_Waiver(models.Model):
     
 
 class Feedback_Questions(models.Model):
-    question = models.IntegerField(unique=True)
-    question_text = models.CharField(max_length=100)
-    
+    q1 = models.BooleanField(verbose_name="Question #1", default=False)
+    q2 = models.BooleanField(verbose_name="Question #2", default=False)
+    q3 = models.BooleanField(verbose_name="Question #3", default=False)
+    q4 = models.BooleanField(verbose_name="Question #4", default=False)
+    q5 = models.BooleanField(verbose_name="Question #5", default=False)
+    q6 = models.BooleanField(verbose_name="Question #6", default=False)
+    q7 = models.BooleanField(verbose_name="Question #7", default=False)
+    q8 = models.BooleanField(verbose_name="Question #8", default=False)
+    client_info = models.ForeignKey('Client_Waiver', on_delete=models.SET_NULL, blank=True, null=True)
     def __str__(self):
-        return f"Question {self.question}: {self.question_text}"
+        return f"{self.client_info}"
     
 class Feedback(models.Model):
     questions = models.ForeignKey('Feedback_Questions', on_delete=models.PROTECT, null=True)
@@ -78,4 +84,6 @@ class Services(models.Model):
     client_info = models.ForeignKey('Client_Waiver', on_delete=models.SET_NULL, blank=True, null=True)
     
     def __str__(self):
-        return self.service_name
+        return f"{self.client_info}"
+    
+

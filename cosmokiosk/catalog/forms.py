@@ -70,25 +70,26 @@ class Feedback_Questions(forms.ModelForm):
         })
     )
 
-class Feedback(forms.ModelForm):
+class FeedbackForm(forms.ModelForm):
     class Meta: 
         model = Feedback
-        fields = ['feedback_answer','client'] #,'feedback_question'
+        questions = ['q1','q2','q3','q4','q5','q6','q7','q8'] #,'feedback_question'
 
-        feedback_answer = forms.CharField(
-            required=True,
-            widget=forms.Textarea(attrs={
-                'rows': 4
-            }))
+        def clean(self):
+            cleaned_data = super().clean()
+            questions = ['q1','q2','q3','q4','q5','q6','q7','q8'] 
+            return cleaned_data 
+    
+
 
 # bug testing comment  
-class Services(forms.ModelForm):
+class ServicesForm(forms.ModelForm):
     class Meta:
         model = Services
         fields = ['perm', 'color', 'hairstyle', 'waxing', 'nails', 'client_info']
 
     def clean(self):
         cleaned_data = super().clean()
-        service_fields = ['perm', 'color', 'hairstyle', 'waxing', 'nails', 'client_info'] 
+        fields = ['perm', 'color', 'hairstyle', 'waxing', 'nails', 'client_info'] 
         return cleaned_data  
 

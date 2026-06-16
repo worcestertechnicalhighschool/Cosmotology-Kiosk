@@ -12,7 +12,7 @@ class QuestionAdmin(admin.ModelAdmin): # For the Feedback_Questions model
     list_display = ("question", "question_text") 
 
 class ResponsesAdmin(admin.ModelAdmin): # For the Feedback model
-    list_display = ("questions", "feedback_answer", "client")
+    list_display = ("q1","q2","q3","q4","q5","q6","q7","q8","client_info")
 
 
 class WaxingAdmin(admin.ModelAdmin): # For the Waxing_Waiver model

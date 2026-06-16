@@ -17,30 +17,32 @@
 
 <h1>What are you getting done today</h1>
 
-<form onsubmit="return checkServices(event)">
+<form method="POST" onsubmit="return checkServices(event)">
+
+    {% csrf_token %}
 
 <label class="container">Perm
-  <input type="checkbox" id="perm">
+  <input type="checkbox" name="perm" id="perm">
   <span class="checkmark"></span>
 </label>
 
 <label class="container">Color
-  <input type="checkbox" id="color">
+  <input type="checkbox" name="color" id="color">
   <span class="checkmark"></span>
 </label>
 
 <label class="container">Hairstyle
-  <input type="checkbox" id="hair">
+  <input type="checkbox" name="hair" id="hair">
   <span class="checkmark"></span>
 </label>
 
 <label class="container">Waxing
-  <input type="checkbox" id="waxing">
+  <input type="checkbox" name="waxing" id="waxing">
   <span class="checkmark"></span>
 </label>
 
 <label class="container">Nails
-  <input type="checkbox" id="nails">
+  <input type="checkbox" name="nails" id="nails">
   <span class="checkmark"></span>
 </label>
 
@@ -58,13 +60,12 @@ function checkServices(event) {
   const nails = document.getElementById("nails").checked;
 
    if (waxing) {
-    window.location.href = "{% url 'waxing_waiver' %}";
-    return false; 
+    window.location.href = "{% url 'waxing_waiver' %}"; 
+    return false;
   }
-
   if (perm || color || hair || nails) {
     window.location.href = "{% url 'welcome' %}?thank=1";
-    return false; 
+    return false;
   } else {
     alert("Please select at least one service before submitting.");
     return false;
