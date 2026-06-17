@@ -36,6 +36,13 @@ class Client_Waiver(models.Model):
     
 
 class Feedback_Questions(models.Model):
+    question = models.IntegerField(unique=True)
+    question_text = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return f"Question {self.question}: {self.question_text}"
+    
+class Feedback(models.Model):
     q1 = models.BooleanField(verbose_name="Question #1", default=False)
     q2 = models.BooleanField(verbose_name="Question #2", default=False)
     q3 = models.BooleanField(verbose_name="Question #3", default=False)
@@ -47,15 +54,6 @@ class Feedback_Questions(models.Model):
     client_info = models.ForeignKey('Client_Waiver', on_delete=models.SET_NULL, blank=True, null=True)
     def __str__(self):
         return f"{self.client_info}"
-    
-class Feedback(models.Model):
-    questions = models.ForeignKey('Feedback_Questions', on_delete=models.PROTECT, null=True)
-    feedback_answer = models.CharField(max_length=200)
-    client = models.ForeignKey('Client_Waiver', on_delete=models.SET_NULL, blank=True, null=True)
-    
-    def __str__(self):
-        return f"Q{self.questions.question}: {self.feedback_answer}"
-    
     
 class Waxing_Waiver(models.Model):
     # Questions
