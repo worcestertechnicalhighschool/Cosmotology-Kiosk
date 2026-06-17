@@ -54,30 +54,29 @@ class WaxingWaiverForm(forms.ModelForm):
         return cleaned_data   
 
 
-class Feedback_Questions(forms.ModelForm):
+class FeedbackQuestionsForm(forms.ModelForm):
+
+    question_text = forms.CharField(
+        required=False,
+        widget=forms.Textarea(attrs={'placeholder': 'optional feedback'})
+    )
+
     class Meta:
         model = Feedback_Questions
-        fields = ['question','question_text']
-
-        multipleChoice = {
+        fields = ['question', 'question_text']
+        widgets = {
             'question': forms.RadioSelect(),
         }
 
-        question_text = forms.CharField(
-        required=False,
-        widget=forms.Textarea(attrs={
-            'placeholder': 'optional feedback'
-        })
-    )
 
 class FeedbackForm(forms.ModelForm):
     class Meta: 
         model = Feedback
-        questions = ['q1','q2','q3','q4','q5','q6','q7','q8'] #,'feedback_question'
+        fields = ['q1','q2','q3','q4','q5','q6','q7','q8'] #,'feedback_question'
 
         def clean(self):
             cleaned_data = super().clean()
-            questions = ['q1','q2','q3','q4','q5','q6','q7','q8'] 
+            fields = ['q1','q2','q3','q4','q5','q6','q7','q8'] 
             return cleaned_data 
     
 
