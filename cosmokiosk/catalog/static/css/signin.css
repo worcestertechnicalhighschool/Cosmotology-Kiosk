@@ -22,8 +22,14 @@ body {
 
 /* MAIN CONTENT SPACING */
 h1 {
+<<<<<<< HEAD
   margin-top: 30px;
   margin-left: 25px;
+=======
+  margin-top: 40px;
+  margin-left: 25px;
+  margin-bottom: 50px;
+>>>>>>> c8daa53ac7e58c73bf8ade76ab7c6d5d1047f089
   font-size: 2.5rem;
   align-items: center;
   
