@@ -123,16 +123,15 @@ class ServiceAdmin(admin.ModelAdmin):
         "nails"
     )
     list_per_page = 25
-
-
-# Register models with Django admin
+    
+    
 models_and_admins = [
-    (Profile_Instance, Profile_Instance_Admin),
-    (Client_Waiver, ClientAdmin),
-    (Feedback_Questions, QuestionAdmin),
-    (Feedback, ResponsesAdmin),
-    (Waxing_Waiver, WaxingAdmin),
-    (Services, ServiceAdmin),
+     (Profile_Instance, Profile_Instance_Admin),
+     (Client_Waiver, ClientAdmin),
+     (Feedback_Questions, QuestionAdmin),
+     (Feedback, ResponsesAdmin),
+     (Waxing_Waiver, WaxingAdmin),
+     (Services, ServiceAdmin),
 ]
 
 for model, admins in models_and_admins:
