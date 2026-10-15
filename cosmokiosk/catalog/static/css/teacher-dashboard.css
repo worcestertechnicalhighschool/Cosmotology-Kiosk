@@ -1,0 +1,465 @@
+
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+
+    background: linear-gradient(
+        135deg,
+        #702791 0%,
+        #55359d 45%,
+        #3449aa 100%
+    );
+
+    color: #222;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+body::before {
+    width: 450px;
+    height: 450px;
+    top: -150px;
+    left: -120px;
+    background: rgba(253, 135, 223, 0.20);
+    filter: blur(20px);
+}
+
+body::after {
+    width: 500px;
+    height: 500px;
+    right: -180px;
+    bottom: -180px;
+    background: rgba(50, 150, 255, 0.18);
+    filter: blur(25px);
+}
+
+
+
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+
+    padding: 30px 18px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    box-shadow: 5px 0 25px rgba(20, 10, 60, 0.15);
+}
+
+.sidebar-title {
+    margin: 0 0 35px;
+    padding: 0 12px;
+
+    color: #4d2c91;
+    font-size: 25px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-link {
+    display: block;
+
+    padding: 15px 17px;
+
+    border-radius: 12px;
+
+    color: #594d6c;
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-link:hover {
+    background: #f2e9fa;
+    color: #702791;
+}
+
+.sidebar-link.active {
+    background: linear-gradient(
+        90deg,
+        #fd87df,
+        #9c69d8
+    );
+
+    color: white;
+
+    box-shadow: 0 5px 14px rgba(112, 39, 145, 0.18);
+}
+
+
+
+
+.dashboard-content {
+    flex: 1;
+    min-width: 0;
+
+    padding: 40px;
+}
+
+.dashboard-content > h1 {
+    margin: 0 0 10px;
+
+    color: white;
+    font-size: 34px;
+
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+}
+
+.page-description {
+    margin: 0 0 28px;
+
+    color: #eee5f8;
+    font-size: 15px;
+}
+
+
+
+
+.clients-section,
+.feedback-section {
+    width: 100%;
+
+    padding: 28px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-radius: 22px;
+
+    box-shadow: 0 18px 45px rgba(20, 10, 60, 0.25);
+}
+
+
+
+
+.client-list,
+.feedback-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.client-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+    padding: 18px 20px;
+
+    background: #f8f5fc;
+    border: 1px solid #ebe1f5;
+    border-radius: 14px;
+
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.client-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(77, 44, 145, 0.13);
+}
+
+.client-info h3 {
+    margin: 0 0 7px;
+
+    color: #38206f;
+    font-size: 18px;
+}
+
+.client-info p {
+    margin: 0;
+
+    color: #777;
+    font-size: 13px;
+}
+
+
+
+
+.view-button {
+    flex-shrink: 0;
+    display: inline-block;
+
+    padding: 11px 18px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #fd87df,
+        #9c69d8
+    );
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.view-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 17px rgba(112, 39, 145, 0.23);
+}
+
+
+
+
+.feedback-card {
+    background: #f8f5fc;
+
+    border: 1px solid #ebe1f5;
+    border-radius: 14px;
+
+    overflow: hidden;
+}
+
+.feedback-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+    padding: 20px;
+
+    cursor: pointer;
+    list-style: none;
+}
+
+.feedback-summary::-webkit-details-marker {
+    display: none;
+}
+
+.feedback-summary::marker {
+    content: "";
+}
+
+.feedback-summary:hover {
+    background: #f1eaf9;
+}
+
+.feedback-client h3 {
+    margin: 0 0 7px;
+
+    color: #38206f;
+    font-size: 18px;
+}
+
+.feedback-client p {
+    margin: 0;
+
+    color: #777;
+    font-size: 13px;
+}
+
+.feedback-expand {
+    flex-shrink: 0;
+
+    color: #702791;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.feedback-card[open] .feedback-expand {
+    color: #9c69d8;
+}
+
+
+
+.feedback-details {
+    padding: 22px;
+
+    background: #f3eef9;
+    border-top: 1px solid #e4d9ee;
+}
+
+.feedback-details > h3 {
+    margin: 0 0 16px;
+
+    color: #4d2c91;
+    font-size: 20px;
+}
+
+.ratings {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+    padding: 14px;
+
+    background: white;
+    border: 1px solid #eee7f5;
+    border-radius: 10px;
+}
+
+.rating span {
+    color: #555;
+    font-size: 14px;
+}
+
+.rating strong {
+    color: #702791;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+
+
+
+.feedback-message {
+    margin-top: 20px;
+    padding: 18px;
+
+    background: white;
+    border-left: 4px solid #9c69d8;
+    border-radius: 12px;
+}
+
+.feedback-message h3 {
+    margin: 0 0 10px;
+
+    color: #4d2c91;
+    font-size: 17px;
+}
+
+.feedback-message p {
+    margin: 0;
+
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
+}
+
+
+
+
+.empty-message {
+    margin: 0;
+    padding: 20px;
+
+    background: #f7f4fa;
+    border-radius: 12px;
+
+    color: #777;
+    text-align: center;
+}
+
+
+
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .dashboard-content {
+        padding: 25px;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .dashboard-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 18px;
+    }
+
+    .sidebar-title {
+        margin-bottom: 15px;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .dashboard-content {
+        padding: 20px;
+    }
+
+    .dashboard-content > h1 {
+        font-size: 28px;
+    }
+
+    .ratings {
+        grid-template-columns: 1fr;
+    }
+
+    .client-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .view-button {
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .clients-section,
+    .feedback-section {
+        padding: 18px;
+    }
+
+    .feedback-summary {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
