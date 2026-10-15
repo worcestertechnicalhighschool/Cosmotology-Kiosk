@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse # used  in get_absolute_url to get the URL for a specified ID
 from django.db.models import UniqueConstraint
 from django.db.models.functions import Lower
+from django.contrib.auth.hashers import make_password, check_password
 
 from django.utils import timezone
 import uuid
@@ -13,40 +14,37 @@ import uuid
 
 # models WILL GO THROUGH CHANGES, THEY ARE NOT FINAL. REMOVE THIS COMMENT WHEN THIS STATEMENT IS UNTRUEx
 
-# Profile Model Here (for admin panel)
+
 
 class Profile_Instance(models.Model):
     username = models.CharField(max_length=20)
-    email_address = models.EmailField(max_length=254, help_text="Example: abc@gmail.com")
+
+    email_address = models.EmailField(
+        max_length=254,
+        help_text="Example: abc@gmail.com",
+    )
+
+    password = models.CharField(
+        max_length=128,
+        blank=True,
+        default=""
+    )
+
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    is_student = models.BooleanField(default=False)
-    is_shop_instructor = models.BooleanField(default=False)
-     
+
+    is_student = models.BooleanField(default=False, null=True)
+    is_shop_instructor = models.BooleanField(default=False, null=True)
+
+    def set_password(self, raw_password):
+        self.password = make_password(raw_password)
+
+    def check_password(self, raw_password):
+        return check_password(raw_password, self.password)
+
     def __str__(self):
         return self.email_address
 
-    
-    
-import uuid
-
-# Create your models here.
-
-# Create your models here.
-
-
-# models WILL GO THROUGH CHANGES, THEY ARE NOT FINAL. REMOVE THIS COMMENT WHEN THIS STATEMENT IS UNTRUEx
-
-# Profile Model Here (for admin panel)
-
-
-
-# Domain Expansion: Time Cell Moon Palace
-# Domain Expansion: Chimera Shadow Garden
-# Domain Expansion: Infinite Void
-# Domain Expansion: Malevolant Shrine
-# Domain Expansion: Threefold Affliction
-#Domain Expansion: 
 class Client_Waiver(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
